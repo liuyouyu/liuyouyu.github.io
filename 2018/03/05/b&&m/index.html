@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1. backbone的extendvar extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPro">
+<meta name="description" content="一. backbone的extend## 源码片段 var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="backbone">
 <meta property="og:url" content="http://yoursite.com/2018/03/05/b&&m/index.html">
 <meta property="og:site_name" content="LYY&#39;BLOGS">
-<meta property="og:description" content="1. backbone的extendvar extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPro">
+<meta property="og:description" content="一. backbone的extend## 源码片段 var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T09:13:54.894Z">
+<meta property="og:updated_time" content="2018-03-06T10:05:54.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="backbone">
-<meta name="twitter:description" content="1. backbone的extendvar extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPro">
+<meta name="twitter:description" content="一. backbone的extend## 源码片段 var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child =">
 
 
 
@@ -381,7 +381,8 @@
       
 
       
-        <h1 id="1-backbone的extend"><a href="#1-backbone的extend" class="headerlink" title="1. backbone的extend"></a><strong>1. backbone的extend</strong></h1><pre><code>var extend = function(protoProps, staticProps) {
+        <h1 id="一-backbone的extend"><a href="#一-backbone的extend" class="headerlink" title="一. backbone的extend"></a><strong>一. backbone的extend</strong></h1><pre><code>## 源码片段
+var extend = function(protoProps, staticProps) {
     var parent = this;
     var child
     if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
@@ -404,7 +405,22 @@
 };
 
  Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
-</code></pre><h1 id="2-backbone的reset"><a href="#2-backbone的reset" class="headerlink" title="2. backbone的reset"></a><strong>2. backbone的reset</strong></h1><pre><code>reset方法
+
+## eg
+
+var Form=new Juggler.Components.Form.extend({
+    onSubmit:function(){
+
+    }
+})
+
+var form=new Form();
+
+## 说明
+Form 相当于SubType,
+而Juggler.Components.Form是SuperType,
+form是Form的实例。
+</code></pre><h1 id="二-backbone的reset"><a href="#二-backbone的reset" class="headerlink" title="二. backbone的reset"></a><strong>二. backbone的reset</strong></h1><pre><code>reset方法
  使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，
  默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，
  与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，
@@ -606,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-backbone的extend"><span class="nav-number">1.</span> <span class="nav-text">1. backbone的extend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-backbone的reset"><span class="nav-number">2.</span> <span class="nav-text">2. backbone的reset</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-backbone的extend"><span class="nav-number">1.</span> <span class="nav-text">一. backbone的extend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-backbone的reset"><span class="nav-number">2.</span> <span class="nav-text">二. backbone的reset</span></a></li></ol></div>
             
 
           </div>
