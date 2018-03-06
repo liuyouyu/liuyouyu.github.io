@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1. backbone的extend var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPr">
+<meta name="description" content="1. backbone的extend    var extend = function(protoProps, staticProps) {        var parent = this;        var child        if (protoProps &amp;amp;&amp;amp; _.has(protoProps, ‘constructor’)) {        child = pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="backbone源码之extend">
 <meta property="og:url" content="http://yoursite.com/2018/03/05/b&&m/index.html">
 <meta property="og:site_name" content="LYY&#39;BLOGS">
-<meta property="og:description" content="1. backbone的extend var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPr">
+<meta property="og:description" content="1. backbone的extend    var extend = function(protoProps, staticProps) {        var parent = this;        var child        if (protoProps &amp;amp;&amp;amp; _.has(protoProps, ‘constructor’)) {        child = pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T07:36:50.726Z">
+<meta property="og:updated_time" content="2018-03-06T07:41:05.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="backbone源码之extend">
-<meta name="twitter:description" content="1. backbone的extend var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = protoPr">
+<meta name="twitter:description" content="1. backbone的extend    var extend = function(protoProps, staticProps) {        var parent = this;        var child        if (protoProps &amp;amp;&amp;amp; _.has(protoProps, ‘constructor’)) {        child = pr">
 
 
 
@@ -381,17 +381,8 @@
       
 
       
-        <p><strong>1. backbone的extend</strong></p>
-<pre><code>var extend = function(protoProps, staticProps) {
-    var parent = this;
-    var child
-    if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
-    child = protoProps.constructor;
-    } else {
-    child = function(){ return parent.apply(this, arguments); };
-    }
-
-    _.extend(child, parent, staticProps);
+        <p><strong>1. backbone的extend</strong><br><!-- js --><br>    var extend = function(protoProps, staticProps) {<br>        var parent = this;<br>        var child<br>        if (protoProps &amp;&amp; _.has(protoProps, ‘constructor’)) {<br>        child = protoProps.constructor;<br>        } else {<br>        child = function(){ return parent.apply(this, arguments); };<br>        }</p>
+<pre><code>    _.extend(child, parent, staticProps);
 
     var Surrogate = function(){ this.constructor = child; };
     Surrogate.prototype = parent.prototype;
