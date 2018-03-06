@@ -382,7 +382,7 @@
       
         
           
-            <p><strong>1. git branch -a</strong><br>    git branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果远程分支现在有新的，那么不会有新的分支。</p>
+            <p><strong>1. git branch -a</strong><br>    git branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。<br><strong>2. git 协同工作时</strong><br>    任何人的任何从操作都会保留</p>
 
           
         
@@ -524,7 +524,29 @@
       
         
           
-            
+            <p><strong>1. backbone的extend</strong></p>
+<pre><code> var extend = function(protoProps, staticProps) {
+var parent = this;
+var child
+if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
+  child = protoProps.constructor;
+} else {
+  child = function(){ return parent.apply(this, arguments); };
+}
+
+_.extend(child, parent, staticProps);
+
+var Surrogate = function(){ this.constructor = child; };
+Surrogate.prototype = parent.prototype;
+child.prototype = new Surrogate;
+
+if (protoProps) _.extend(child.prototype, protoProps);
+
+child.__super__ = parent.prototype;
+
+return child;
+</code></pre><p>  };</p>
+
           
         
       
@@ -572,7 +594,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/01/helloWord-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/helloWord-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="youyu liu">
@@ -591,7 +613,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/01/01/helloWord-hexo/" itemprop="url">HelloWord</a></h1>
+                <a class="post-title-link" href="/2018/01/01/helloWord-hexo/" itemprop="url">HelloWord</a></h1>
         
 
         <div class="post-meta">
@@ -603,8 +625,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-01T21:38:29+08:00">
-                2016-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T21:38:29+08:00">
+                2018-01-01
               </time>
             
 
@@ -665,7 +687,7 @@
       
         
           
-            <h1 id="早睡早起，保持充足睡眠！！！"><a href="#早睡早起，保持充足睡眠！！！" class="headerlink" title="早睡早起，保持充足睡眠！！！"></a>早睡早起，保持充足睡眠！！！</h1><h1 id="养成一个健康的作息习惯"><a href="#养成一个健康的作息习惯" class="headerlink" title="养成一个健康的作息习惯"></a>养成一个健康的作息习惯</h1><h1 id="小码农该睡觉了"><a href="#小码农该睡觉了" class="headerlink" title="小码农该睡觉了"></a>小码农该睡觉了</h1>
+            <h1 id="今天起用hexo写写个人博客，就当温故知新了。"><a href="#今天起用hexo写写个人博客，就当温故知新了。" class="headerlink" title="今天起用hexo写写个人博客，就当温故知新了。"></a>今天起用hexo写写个人博客，就当温故知新了。</h1><h1 id="算了，小码农该睡觉了，身体是革命的本钱。"><a href="#算了，小码农该睡觉了，身体是革命的本钱。" class="headerlink" title="算了，小码农该睡觉了，身体是革命的本钱。"></a>算了，小码农该睡觉了，身体是革命的本钱。</h1>
           
         
       
