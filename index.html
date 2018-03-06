@@ -524,8 +524,17 @@
       
         
           
-            <p><strong>1. backbone的extend</strong><br><!-- js --><br>    var extend = function(protoProps, staticProps) {<br>        var parent = this;<br>        var child<br>        if (protoProps &amp;&amp; _.has(protoProps, ‘constructor’)) {<br>        child = protoProps.constructor;<br>        } else {<br>        child = function(){ return parent.apply(this, arguments); };<br>        }</p>
-<pre><code>    _.extend(child, parent, staticProps);
+            <p><strong>1. backbone的extend</strong></p>
+<pre><code>var extend = function(protoProps, staticProps) {
+    var parent = this;
+    var child
+    if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
+    child = protoProps.constructor;
+    } else {
+    child = function(){ return parent.apply(this, arguments); };
+    }
+
+    _.extend(child, parent, staticProps);
 
     var Surrogate = function(){ this.constructor = child; };
     Surrogate.prototype = parent.prototype;
