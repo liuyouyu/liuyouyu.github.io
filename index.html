@@ -525,28 +525,28 @@
         
           
             <p><strong>1. backbone的extend</strong></p>
-<pre><code> var extend = function(protoProps, staticProps) {
-var parent = this;
-var child
-if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
-  child = protoProps.constructor;
-} else {
-  child = function(){ return parent.apply(this, arguments); };
-}
+<pre><code>var extend = function(protoProps, staticProps) {
+    var parent = this;
+    var child
+    if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) {
+    child = protoProps.constructor;
+    } else {
+    child = function(){ return parent.apply(this, arguments); };
+    }
 
-_.extend(child, parent, staticProps);
+    _.extend(child, parent, staticProps);
 
-var Surrogate = function(){ this.constructor = child; };
-Surrogate.prototype = parent.prototype;
-child.prototype = new Surrogate;
+    var Surrogate = function(){ this.constructor = child; };
+    Surrogate.prototype = parent.prototype;
+    child.prototype = new Surrogate;
 
-if (protoProps) _.extend(child.prototype, protoProps);
+    if (protoProps) _.extend(child.prototype, protoProps);
 
-child.__super__ = parent.prototype;
+    child.__super__ = parent.prototype;
 
-return child;
-</code></pre><p>  };</p>
-
+    return child;
+};
+</code></pre>
           
         
       
