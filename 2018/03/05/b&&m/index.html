@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="LYY&#39;BLOGS">
 <meta property="og:description" content="#  1. backbone的extend var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = prot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T08:08:01.232Z">
+<meta property="og:updated_time" content="2018-03-06T08:14:48.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="backbone">
 <meta name="twitter:description" content="#  1. backbone的extend var extend = function(protoProps, staticProps) {     var parent = this;     var child     if (protoProps &amp;amp;&amp;amp; _.has(protoProps, &amp;apos;constructor&amp;apos;)) {     child = prot">
@@ -407,7 +407,13 @@
 
  Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
 </code></pre><h1 id="2-backbone的extend"><a href="#2-backbone的extend" class="headerlink" title="2. backbone的extend"></a><strong>2. backbone的extend</strong></h1><pre><code>reset方法
- 使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，reset会整个清空collection重新添加所有model。这时你就需要在collection中定义reset方法或者是绑定reset方法。
+ 使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，
+ 默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，
+ 与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，
+ reset会整个清空collection重新添加所有model。
+ 这时你就需要在collection中定义reset方法或者是绑定reset方法。
+
+ 注意：set方法实现的行为容易混淆；
 </code></pre>
       
     </div>
@@ -461,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/01/helloWord-hexo/" rel="next" title="HelloWord">
-                <i class="fa fa-chevron-left"></i> HelloWord
+              <a href="/2018/03/03/git/" rel="next" title="git个人总结">
+                <i class="fa fa-chevron-left"></i> git个人总结
               </a>
             
           </div>
@@ -470,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/06/git/" rel="prev" title="git个人总结">
-                git个人总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

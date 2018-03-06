@@ -289,150 +289,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="youyu liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LYY'BLOGS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/06/git/" itemprop="url">git个人总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T15:02:23+08:00">
-                2018-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GIT/" itemprop="url" rel="index">
-                    <span itemprop="name">GIT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-git-branch-a"><a href="#1-git-branch-a" class="headerlink" title="1. git branch -a"></a><strong>1. git branch -a</strong></h1><pre><code>git branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果远程分支现在（在你pull之后）又有新的分支，
-那么新的分支不会出现。
-</code></pre><h1 id="2-git-协同工作时"><a href="#2-git-协同工作时" class="headerlink" title="2. git 协同工作时"></a><strong>2. git 协同工作时</strong></h1><pre><code>任何人的任何从操作都会保留
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/b&&m/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -552,7 +408,157 @@
 
  Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
 </code></pre><h1 id="2-backbone的extend"><a href="#2-backbone的extend" class="headerlink" title="2. backbone的extend"></a><strong>2. backbone的extend</strong></h1><pre><code>reset方法
- 使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，reset会整个清空collection重新添加所有model。这时你就需要在collection中定义reset方法或者是绑定reset方法。
+ 使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，
+ 默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，
+ 与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset，
+ reset会整个清空collection重新添加所有model。
+ 这时你就需要在collection中定义reset方法或者是绑定reset方法。
+
+ 注意：set方法实现的行为容易混淆；
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youyu liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYY'BLOGS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/03/git/" itemprop="url">git个人总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T15:02:23+08:00">
+                2018-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GIT/" itemprop="url" rel="index">
+                    <span itemprop="name">GIT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-git-branch-a"><a href="#1-git-branch-a" class="headerlink" title="1. git branch -a"></a><strong>1. git branch -a</strong></h1><pre><code>git branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果远程分支现在（在你pull之后）又有新的分支，
+那么新的分支不会出现。
+</code></pre><h1 id="2-git-协同工作时"><a href="#2-git-协同工作时" class="headerlink" title="2. git 协同工作时"></a><strong>2. git 协同工作时</strong></h1><pre><code>任何人的任何从操作都会保留
 </code></pre>
           
         
