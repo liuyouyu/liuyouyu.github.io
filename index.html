@@ -618,10 +618,12 @@ var extend = function(protoProps, staticProps) {
 
     child.__super__ = parent.prototype;
 
+    &lt;!-- extend出来的是一个子类（lyy） --&gt;
     return child;
 };
 
  Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
+
 
 ## eg
 
@@ -633,10 +635,25 @@ var Form=new Juggler.Components.Form.extend({
 
 var form=new Form();
 
+不能写成 var form=new Juggler Components.Form.extend({
+    onSubmit:function(){
+
+    }
+})
+
+
 ## 说明
 Form 相当于SubType,
 而Juggler.Components.Form是SuperType,
 form是Form的实例。
+child.prototype = new Surrogate; 
+Form.prototype=new Jugggler.Components.Form;
+
+_.extend(child.prototype, protoProps);
+_.extend(Form.prototype,{onSubmit:function(){...}})
+
+return child;
+return Form
 </code></pre><h1 id="二-backbone的reset"><a href="#二-backbone的reset" class="headerlink" title="二. backbone的reset"></a><strong>二. backbone的reset</strong></h1><pre><code>reset方法
  使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后，
  默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并，
