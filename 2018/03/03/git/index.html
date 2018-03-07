@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="LYY&#39;BLOGS">
 <meta property="og:description" content="1. git branch -agit branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果 远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。 2. git 协同工作时任何人的任何从操作都会保留（lyy） 3. git push -u origin gaga==&amp;gt;  git push  origin gaga + gitbranch --set">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T06:01:58.636Z">
+<meta property="og:updated_time" content="2018-03-07T06:33:54.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git个人总结">
 <meta name="twitter:description" content="1. git branch -agit branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果 远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。 2. git 协同工作时任何人的任何从操作都会保留（lyy） 3. git push -u origin gaga==&amp;gt;  git push  origin gaga + gitbranch --set">
@@ -451,7 +451,8 @@ Git就会自动将local1分支上的内容push到branch1上去。同样，local2
 
 **使用reset不能处理公共分支**。
     因为：假设A/B是两个不同的人；
-    你(A)本地的版本回退，push到了远程（在此时有人(B)pull代码），远程也回退了。A1-A2-A3变成了A1;但是B的版本库是A1-A2-B1,B
+    你(A)本地的版本回退，push到了远程（在此时有人(B)pull代码），
+    远程也回退了。 A1-A2-A3变成了A1;但是B的版本库是A1-A2-B1,B
     pull再push,远程还是A1-A2-B1
 
 使用**revert或者直接全部替换**可以处理回退远程 公共分支
