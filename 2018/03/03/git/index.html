@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="LYY&#39;BLOGS">
 <meta property="og:description" content="1. git branch -agit branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果 远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。 2. git 协同工作时任何人的任何从操作都会保留（lyy） 3. git push -u origin gaga==&amp;gt;  git push  origin gaga + gitbranch --set">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T02:34:22.823Z">
+<meta property="og:updated_time" content="2018-03-07T06:01:58.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git个人总结">
 <meta name="twitter:description" content="1. git branch -agit branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果 远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。 2. git 协同工作时任何人的任何从操作都会保留（lyy） 3. git push -u origin gaga==&amp;gt;  git push  origin gaga + gitbranch --set">
@@ -443,6 +443,22 @@ Git就会自动将local1分支上的内容push到branch1上去。同样，local2
 2. git branch --set-upstream-to=origin/gaga master这两种方式都可以达到目的。
 但是1方法更通用，因为你的远程库有可能并没有gaga分支，这种情况下你用2方法就不可行，连目标分支都不存在，怎么进行关联呢？
 所以可以总结一下：git push -u origin gaga 相当于 git push origin gaga + git branch --set-upstream-to=origin/gaga master
+</code></pre><h1 id="4-git远程版本库回退"><a href="#4-git远程版本库回退" class="headerlink" title="4 git远程版本库回退"></a>4 git远程版本库回退</h1><pre><code>    梧桐那时雨-csdn博客；
+    三种方法
+1. **自己分支**回滚直接用reset
+2. **公共分支**回滚用revert
+3. 错的太远就惊呆吗直接全部删除，用正确代码代替；
+
+**使用reset不能处理公共分支**。
+    因为：假设A/B是两个不同的人；
+    你(A)本地的版本回退，push到了远程（在此时有人(B)pull代码），远程也回退了。A1-A2-A3变成了A1;但是B的版本库是A1-A2-B1,B
+    pull再push,远程还是A1-A2-B1
+
+使用**revert或者直接全部替换**可以处理回退远程 公共分支
+    因为：用2或者3 A利用revert远程回退,远程是A1-A2-B1变成了A1-A2-B1-A3(
+    A3与A1的内容一样),B的版本库是A1-A2-B1, 
+    pull再push之后，版本是A1-A2-B1-A3-mergeA3,但是mergeA3的代码
+    就是A1和B1的merge;
 </code></pre>
       
     </div>
@@ -631,7 +647,7 @@ Git就会自动将local1分支上的内容push到branch1上去。同样，local2
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-git-branch-a"><span class="nav-number">1.</span> <span class="nav-text">1. git branch -a</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-git-协同工作时"><span class="nav-number">2.</span> <span class="nav-text">2. git 协同工作时</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-git-push-u-origin-gaga"><span class="nav-number">3.</span> <span class="nav-text">3. git push -u origin gaga</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-git-branch-a"><span class="nav-number">1.</span> <span class="nav-text">1. git branch -a</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-git-协同工作时"><span class="nav-number">2.</span> <span class="nav-text">2. git 协同工作时</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-git-push-u-origin-gaga"><span class="nav-number">3.</span> <span class="nav-text">3. git push -u origin gaga</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-git远程版本库回退"><span class="nav-number">4.</span> <span class="nav-text">4 git远程版本库回退</span></a></li></ol></div>
             
 
           </div>
