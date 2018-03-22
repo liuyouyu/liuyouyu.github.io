@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hexo]]></title>
-    <url>%2F2018%2F03%2F06%2Fhexo%2F</url>
-    <content type="text"><![CDATA[这个哥们的hexo-next主题看着可以https://www.ezlippi.com/blog/2017/02/hexo-search.html HEXO搜索NexT主题支持集成 Swiftype、 微搜索、Local Search 和 Algolia,Swiftype和Algolia 都只有一段时间的试用期，可以采用Hexo提供的Local Search,原理是 通过hexo-generator-search插件在本地生成一个search.xml文件， 搜索的时候从这个文件中根据关键字检索出相应的链接。 安装步骤 安装 hexo-generator-search 在站点的根目录下执行以下命令： $ npm install hexo-generator-search --save 安装 hexo-generator-searchdb 在站点的根目录下执行以下命令： $ npm install hexo-generator-searchdb --save 启用搜索 编辑 站点配置文件，新增以下内容到任意位置： search: path: search.xml field: post format: html limit: 10000 npm install hexo-generator-searchdb --save 修改 站点配置 文件 search: path: search.xml field: post format: html limit: 10000 修改 主题配置文件 local_search: enable: true hexo 新建页面；]]></content>
-      <categories>
-        <category>HEXO</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[backbone]]></title>
     <url>%2F2018%2F03%2F05%2Fb%26%26m%2F</url>
     <content type="text"><![CDATA[一. backbone的extend## 源码片段 var extend = function(protoProps, staticProps) { var parent = this; var child if (protoProps &amp;&amp; _.has(protoProps, &apos;constructor&apos;)) { child = protoProps.constructor; } else { child = function(){ return parent.apply(this, arguments); }; } _.extend(child, parent, staticProps); var Surrogate = function(){ this.constructor = child; }; Surrogate.prototype = parent.prototype; child.prototype = new Surrogate; if (protoProps) _.extend(child.prototype, protoProps); child.__super__ = parent.prototype; &lt;!-- extend出来的是一个子类（lyy） --&gt; return child; }; Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend; ## eg var Form=new Juggler.Components.Form.extend({ onSubmit:function(){ } }) var form=new Form(); 不能写成 var form=new Juggler Components.Form.extend({ onSubmit:function(){ } }) ## 说明 Form 相当于SubType, 而Juggler.Components.Form是SuperType, form是Form的实例。 child.prototype = new Surrogate; Form.prototype=new Jugggler.Components.Form; _.extend(child.prototype, protoProps); _.extend(Form.prototype,{onSubmit:function(){...}}) return child; return Form 二. backbone的resetreset方法 使用这个方法的时候是要和上面的fetch进行配合的，collection在fetch到数据之后， 默认情况会调用set方法(set方法向collection里面添加新model，如果该model之前存在则会合并， 与此同时会触发collection的add事件)，可以通过参数{reset: true}来手动触发reset， reset会整个清空collection重新添加所有model。 这时你就需要在collection中定义reset方法或者是绑定reset方法。 注意：set方法实现的行为容易混淆 backbone文档之set方法：set方法通过传递模型列表执行一个集合的&quot;smart(智能)&quot;的更新。 如果列表中的一个模型尚不在集合中，那么它将被添加; 如果模型已经在集合中，其属性将被合并; 并且如果集合包含不存在于列表中的任何模型，他们将被删除。 以上所有将触发相应的&quot;add&quot;, &quot;remove&quot;, 和 &quot;change&quot;事件。 返回集合中的模型。 如果您想自定义的行为， 你可以设置选项： {add: false}, {remove: false}, 或 {merge: false}，将其禁用。]]></content>
@@ -30,6 +22,14 @@
     <content type="text"><![CDATA[1. git branch -agit branch -a 可以查看所有远程分支，但是查看的是你pull时候的样子，如果 远程分支现在（在你pull之后）又有新的分支，那么新的分支不会出现。 2. git 协同工作时任何人的任何从操作都会保留（lyy） 3. git push -u origin gaga==&gt; git push origin gaga + gitbranch --set-upstream=origin/gaga master (本地分支master关联远程origin/gaga) 作者：王轩dd [链接：](https://www.zhihu.com/question/20019419/answer/48434769/ &quot;知乎上的&quot;) 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 我不太赞同“脑子需要洗洗了”那位童鞋的说法。以我的记忆来看，upstream不是针对远程仓库的， 而是针对branch的，这一点应了那位童鞋所说的第二句话。但是upstream和有几个远程库没有必然联系。 比如远程库A上有3个分支branch1、branch2、branch3。远程库B上有3个分支branchx、branchy、branchz。 本地仓库有2个分支local1和local2。那么当初始状态时，local1和local2和任何一个分支都没有关联， 也就是没有upstream。当通过git branch --set-upstream-to A/branch1 local1命令执行后， 会给local1和branch1两个分支建立关联，也就是说local1的upstream指向的是branch1。 这样的好处就是在local1分支上执行git push（git pull同理）操作时不用附加其它参数， Git就会自动将local1分支上的内容push到branch1上去。同样，local2分支也可以和远程库A 和远程库B上的任何一个分支建立关联，只要给local2分支设置了upstream，就可以在local2分支上 用git push（git pull同理）方便地与目标分支推拉数据。综上所述，upstream与有几个远程库没有关系， 它是分支与分支之间的流通道。再来说说git push -u和git branch --set-upstream-to指令之间的区别。 举个例子：我要把本地分支master与远程仓库origin里的分支gaga建立关联。（如果使用下列途径1的话，首先 ，你要切换到master分支上（git checkout master））两个途径： 1. git push -u origin gaga 2. git branch --set-upstream-to=origin/gaga master这两种方式都可以达到目的。 但是1方法更通用，因为你的远程库有可能并没有gaga分支，这种情况下你用2方法就不可行，连目标分支都不存在，怎么进行关联呢？ 所以可以总结一下：git push -u origin gaga 相当于 git push origin gaga + git branch --set-upstream-to=origin/gaga master 4 git远程版本库回退 梧桐那时雨-csdn博客； 三种方法 1. **自己分支**回滚直接用reset 2. **公共分支**回滚用revert 3. 错的太远就惊呆吗直接全部删除，用正确代码代替； **使用reset不能处理公共分支**。 因为：假设A/B是两个不同的人； 你(A)本地的版本回退，push到了远程（在此时有人(B)pull代码）， 远程也回退了。 A1-A2-A3变成了A1;但是B的版本库是A1-A2-B1,B pull再push,远程还是A1-A2-B1 使用**revert或者直接全部替换**可以处理回退远程 公共分支 因为：用2或者3 A利用revert远程回退,远程是A1-A2-B1变成了A1-A2-B1-A3( A3与A1的内容一样),B的版本库是A1-A2-B1, pull再push之后，版本是A1-A2-B1-A3-mergeA3,但是mergeA3的代码 就是A1和B1的merge;]]></content>
       <categories>
         <category>GIT</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo]]></title>
+    <url>%2F2018%2F02%2F06%2Fhexo%2F</url>
+    <content type="text"><![CDATA[这个哥们的hexo-next主题看着可以https://www.ezlippi.com/blog/2017/02/hexo-search.html HEXO搜索NexT主题支持集成 Swiftype、 微搜索、Local Search 和 Algolia,Swiftype和Algolia 都只有一段时间的试用期，可以采用Hexo提供的Local Search,原理是 通过hexo-generator-search插件在本地生成一个search.xml文件， 搜索的时候从这个文件中根据关键字检索出相应的链接。 安装步骤 安装 hexo-generator-search 在站点的根目录下执行以下命令： $ npm install hexo-generator-search --save 安装 hexo-generator-searchdb 在站点的根目录下执行以下命令： $ npm install hexo-generator-searchdb --save 启用搜索 编辑 站点配置文件，新增以下内容到任意位置： search: path: search.xml field: post format: html limit: 10000 npm install hexo-generator-searchdb --save 修改 站点配置 文件 search: path: search.xml field: post format: html limit: 10000 修改 主题配置文件 local_search: enable: true hexo 新建页面；hexo new page about hexo 修改头像avatar: images/avatar.png 而不是avatar: /images/avatar.png]]></content>
+      <categories>
+        <category>HEXO</category>
       </categories>
   </entry>
   <entry>
