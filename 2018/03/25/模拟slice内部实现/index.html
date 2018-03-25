@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="LYY&#39;BLOGS">
-<meta property="og:url" content="http://yoursite.com/categories/GIT/index.html">
+<meta name="description" content="slice将为数组转换成数组var aLi=document.querySelector(&amp;quot;li&amp;quot;); var arr=Array.document.slice.call(aLi); 模拟slice的内部实现；Array.prototype.slice=function(start,end){     var result=new Array();     for(var i=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组的一些方法实现">
+<meta property="og:url" content="http://yoursite.com/2018/03/25/模拟slice内部实现/index.html">
 <meta property="og:site_name" content="LYY&#39;BLOGS">
+<meta property="og:description" content="slice将为数组转换成数组var aLi=document.querySelector(&amp;quot;li&amp;quot;); var arr=Array.document.slice.call(aLi); 模拟slice的内部实现；Array.prototype.slice=function(start,end){     var result=new Array();     for(var i=">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-25T15:11:59.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LYY&#39;BLOGS">
+<meta name="twitter:title" content="js数组的一些方法实现">
+<meta name="twitter:description" content="slice将为数组转换成数组var aLi=document.querySelector(&amp;quot;li&amp;quot;); var arr=Array.document.slice.call(aLi); 模拟slice的内部实现；Array.prototype.slice=function(start,end){     var result=new Array();     for(var i=">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/GIT/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/25/模拟slice内部实现/"/>
 
 
 
 
 
-  <title>分类: GIT | LYY'BLOGS</title>
+  <title>js数组的一些方法实现 | LYY'BLOGS</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,55 +292,249 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>GIT<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/模拟slice内部实现/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youyu liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYY'BLOGS">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/03/git/" itemprop="url">
-              
-                <span itemprop="name">git个人总结</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">js数组的一些方法实现</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-03T15:02:23+08:00"
-              content="2018-03-03" >
-          03-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T19:12:30+08:00">
+                2018-03-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h1 id="slice将为数组转换成数组"><a href="#slice将为数组转换成数组" class="headerlink" title="slice将为数组转换成数组"></a>slice将为数组转换成数组</h1><pre><code>var aLi=document.querySelector(&quot;li&quot;);
+var arr=Array.document.slice.call(aLi);
+</code></pre><h1 id="模拟slice的内部实现；"><a href="#模拟slice的内部实现；" class="headerlink" title="模拟slice的内部实现；"></a>模拟slice的内部实现；</h1><pre><code>Array.prototype.slice=function(start,end){
+    var result=new Array();
+    for(var i=0,i&lt;end,i++){
+        result.push(this[i]);
+        return result;
+    }
+}
+</code></pre><h1 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h1><pre><code>#### 1用把每个值当成一个对象的属性存起来
+Array.prototype.unique = function() {
+    var n = {}, r = [];
+    for (var i = 0; i &lt; this.length; i++) {
+        if (!n[this[i]]) {
+            n[this[i]] = true;
+            r.push(this[i]); 
+        }
+    }
+    return r;
+}
+#### 2 用indexOf+forEach
+Array.prototype.distinct = function (){
+    var arr = this,
+    result = [],
+    len = arr.length;
+    arr.forEach(function(v, i ,arr){  //这里利用map，filter方法也可以实现
+        var bool = arr.indexOf(v,i+1);  //从传入参数的下一个索引值开始寻找是否存在重复
+        if(bool === -1){
+        result.push(v);
+        }
+    })
+    return result;
+}
+</code></pre><h1 id="数组合并"><a href="#数组合并" class="headerlink" title="数组合并"></a>数组合并</h1><pre><code>#### 1用concat方法
+
+#### 2用apply方法
+var x=[4];
+用Array.porototype.push.apply(x,[1,2,3]) 
+</code></pre><h1 id="集合取交集"><a href="#集合取交集" class="headerlink" title="集合取交集"></a>集合取交集</h1><pre><code>Array.intersect = function () {
+    var result = new Array();
+    var obj = {};
+    for (var i = 0; i &lt; arguments.length; i++) {
+        for (var j = 0; j &lt; arguments[i].length; j++) {
+            var str = arguments[i][j];
+            if (!obj[str]) {
+                obj[str] = 1;
+            }
+            else {
+                obj[str]++;
+                if (obj[str] == arguments.length)
+                {
+                    result.push(str);
+                }
+            }//end else
+        }//end for j
+    }//end for i
+    return result;
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="youyu liu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="youyu liu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/js/" rel="next" title="js">
+                <i class="fa fa-chevron-left"></i> js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -344,6 +542,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -364,8 +566,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -420,6 +631,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#slice将为数组转换成数组"><span class="nav-number">1.</span> <span class="nav-text">slice将为数组转换成数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模拟slice的内部实现；"><span class="nav-number">2.</span> <span class="nav-text">模拟slice的内部实现；</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组去重"><span class="nav-number">3.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组合并"><span class="nav-number">4.</span> <span class="nav-text">数组合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合取交集"><span class="nav-number">5.</span> <span class="nav-text">集合取交集</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -566,6 +793,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

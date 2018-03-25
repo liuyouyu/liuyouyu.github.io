@@ -303,6 +303,396 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/25/模拟slice内部实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youyu liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYY'BLOGS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/25/模拟slice内部实现/" itemprop="url">js数组的一些方法实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T19:12:30+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="slice将为数组转换成数组"><a href="#slice将为数组转换成数组" class="headerlink" title="slice将为数组转换成数组"></a>slice将为数组转换成数组</h1><pre><code>var aLi=document.querySelector(&quot;li&quot;);
+var arr=Array.document.slice.call(aLi);
+</code></pre><h1 id="模拟slice的内部实现；"><a href="#模拟slice的内部实现；" class="headerlink" title="模拟slice的内部实现；"></a>模拟slice的内部实现；</h1><pre><code>Array.prototype.slice=function(start,end){
+    var result=new Array();
+    for(var i=0,i&lt;end,i++){
+        result.push(this[i]);
+        return result;
+    }
+}
+</code></pre><h1 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h1><pre><code>#### 1用把每个值当成一个对象的属性存起来
+Array.prototype.unique = function() {
+    var n = {}, r = [];
+    for (var i = 0; i &lt; this.length; i++) {
+        if (!n[this[i]]) {
+            n[this[i]] = true;
+            r.push(this[i]); 
+        }
+    }
+    return r;
+}
+#### 2 用indexOf+forEach
+Array.prototype.distinct = function (){
+    var arr = this,
+    result = [],
+    len = arr.length;
+    arr.forEach(function(v, i ,arr){  //这里利用map，filter方法也可以实现
+        var bool = arr.indexOf(v,i+1);  //从传入参数的下一个索引值开始寻找是否存在重复
+        if(bool === -1){
+        result.push(v);
+        }
+    })
+    return result;
+}
+</code></pre><h1 id="数组合并"><a href="#数组合并" class="headerlink" title="数组合并"></a>数组合并</h1><pre><code>#### 1用concat方法
+
+#### 2用apply方法
+var x=[4];
+用Array.porototype.push.apply(x,[1,2,3]) 
+</code></pre><h1 id="集合取交集"><a href="#集合取交集" class="headerlink" title="集合取交集"></a>集合取交集</h1><pre><code>Array.intersect = function () {
+    var result = new Array();
+    var obj = {};
+    for (var i = 0; i &lt; arguments.length; i++) {
+        for (var j = 0; j &lt; arguments[i].length; j++) {
+            var str = arguments[i][j];
+            if (!obj[str]) {
+                obj[str] = 1;
+            }
+            else {
+                obj[str]++;
+                if (obj[str] == arguments.length)
+                {
+                    result.push(str);
+                }
+            }//end else
+        }//end for j
+    }//end for i
+    return result;
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youyu liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYY'BLOGS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/23/js/" itemprop="url">js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T17:12:30+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、js是单线程的（阮一峰）"><a href="#一、js是单线程的（阮一峰）" class="headerlink" title="一、js是单线程的（阮一峰）"></a>一、js是单线程的（阮一峰）</h1><p>  js是单线程的，执行完同步代码再执行异步</p>
+<h1 id="二、js事件触发的三个阶段"><a href="#二、js事件触发的三个阶段" class="headerlink" title="二、js事件触发的三个阶段"></a>二、js事件触发的三个阶段</h1><pre><code>1.捕获 2.目标 3.冒泡
+
+在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段，
+而不是在捕获阶段（重要）。
+</code></pre><h1 id="三、this指向（阮一峰）"><a href="#三、this指向（阮一峰）" class="headerlink" title="三、this指向（阮一峰）"></a>三、this指向（阮一峰）</h1><pre><code>this在函数中，指的是函数调用者，call/apply改变函数调用者
+</code></pre><h1 id="四、闭包"><a href="#四、闭包" class="headerlink" title="四、闭包"></a>四、闭包</h1><pre><code>闭包实现点击获取当前元素的索引；
+    &lt;body&gt;
+        &lt;div id=&quot;ttt&quot;&gt;
+            &lt;p&gt;000000000000000000&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;111111111111111111&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;222222222222222222&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+
+        var dom = document.getElementsByTagName(&quot;p&quot;);
+        // for (var i = 0; i &lt; dom.length; i++) {
+        //     dom[i].onclick = function () {
+        //         console.log(i);//3
+        //     };
+        // }
+
+
+        // for (var i = 0; i &lt; dom.length; i++) {
+        //     dom[i].onclick = function (i) {
+        //         return function () {
+        //             console.log(i);
+
+        for (var i = 0; i &lt; dom.length; i++) {
+            dom[i].onclick = function (t) {
+                return function () {
+                    console.log(t);//1
+                    console.log(i);//3
+                };
+            }(i);
+        }
+
+        var f1 = function () {
+            var n = 2;
+            return function f2() {
+                alert(n);
+            }
+        }
+
+        var result = f1();
+        　　result(); 
+    &lt;/script&gt;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/b&&m/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -514,153 +904,6 @@ return Form
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="youyu liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LYY'BLOGS">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/03/js/" itemprop="url">js</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T17:12:30+08:00">
-                2018-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、js是单线程的（阮一峰）"><a href="#一、js是单线程的（阮一峰）" class="headerlink" title="一、js是单线程的（阮一峰）"></a>一、js是单线程的（阮一峰）</h1><p>  js是单线程的，执行完同步代码再执行异步</p>
-<h1 id="二、js事件触发的三个阶段"><a href="#二、js事件触发的三个阶段" class="headerlink" title="二、js事件触发的三个阶段"></a>二、js事件触发的三个阶段</h1><pre><code>1.捕获 2.目标 3.冒泡
-
-在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段，
-而不是在捕获阶段（重要）。
-</code></pre><h1 id="三、this指向（阮一峰）"><a href="#三、this指向（阮一峰）" class="headerlink" title="三、this指向（阮一峰）"></a>三、this指向（阮一峰）</h1><pre><code>this在函数中，指的是函数调用者，call/apply改变函数调用者。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -799,6 +1042,158 @@ Git就会自动将local1分支上的内容push到branch1上去。同样，local2
     A3与A1的内容一样),B的版本库是A1-A2-B1, 
     pull再push之后，版本是A1-A2-B1-A3-mergeA3,但是mergeA3的代码
     就是A1和B1的merge;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/移动端布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youyu liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYY'BLOGS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/21/移动端布局/" itemprop="url">移动端布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-21T18:32:54+08:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="总结一下移动端一些纠结过的问题；"><a href="#总结一下移动端一些纠结过的问题；" class="headerlink" title="总结一下移动端一些纠结过的问题；"></a>总结一下移动端一些纠结过的问题；</h1><p>pc端dpr都是1，但是到了移动端后dpr就不一样了：<br>首先从视口说起：</p>
+<h1 id="移动端的三个视口"><a href="#移动端的三个视口" class="headerlink" title="移动端的三个视口"></a>移动端的三个视口</h1><h4 id="布局视口"><a href="#布局视口" class="headerlink" title="布局视口"></a>布局视口</h4><pre><code>不设置viewport时候，viewport最常见的事980px；css布局在上面；
+</code></pre><h4 id="视觉视口"><a href="#视觉视口" class="headerlink" title="视觉视口"></a>视觉视口</h4><pre><code>此时口和设备的屏幕一样宽，但是他的css像素和缩放有关；
+</code></pre><h4 id="理想视口"><a href="#理想视口" class="headerlink" title="理想视口"></a>理想视口</h4><pre><code>最理想的布局视口，浏览器根据理想视口来计算缩放程度。
+</code></pre><h1 id="DPR"><a href="#DPR" class="headerlink" title="DPR"></a>DPR</h1><pre><code>DPR=设备像素/css像素||逻辑像素||理想视口.
+浏览器厂商决定了理想视口，so dpr也是他们决定的.
+</code></pre><h1 id="桌面端和手机端的区别："><a href="#桌面端和手机端的区别：" class="headerlink" title="桌面端和手机端的区别："></a>桌面端和手机端的区别：</h1><pre><code>1手机端缩放只影响‘视觉视口’，但是pc端缩放会影响‘视觉视口&amp;&amp;布局视口’，因为pc布局视口和视觉视口是相同的；
+2手机端缩放会产生滚动条，pc端不会产生滚动条；
+3window.devicePixelRadio 在移动端不变，在pc端就与缩放有关
+ 比如：放大两倍，设备像素/css像素||逻辑像素
+       那么一个设备像素对应0.5个逻辑像素。
 </code></pre>
           
         
@@ -1209,7 +1604,7 @@ enable: true
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1220,7 +1615,7 @@ enable: true
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

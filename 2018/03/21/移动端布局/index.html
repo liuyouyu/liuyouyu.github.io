@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一、js是单线程的（阮一峰）  js是单线程的，执行完同步代码再执行异步 二、js事件触发的三个阶段1.捕获 2.目标 3.冒泡  在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段， 而不是在捕获阶段（重要）。 三、this指向（阮一峰）this在函数中，指的是函数调用者，call/apply改变函数调用者。">
+<meta name="description" content="总结一下移动端一些纠结过的问题；pc端dpr都是1，但是到了移动端后dpr就不一样了：首先从视口说起： #移动端的三个视口 ##布局视口    不设置viewport时候，viewport最常见的事980px；css布局在上面； ##视觉视口    此时口和设备的屏幕一样宽，但是他的css像素和缩放有关； ##理想视口    最理想的布局视口，浏览器根据理想视口来计算缩放程度。 #DPR    D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js">
-<meta property="og:url" content="http://yoursite.com/2018/03/03/js/index.html">
+<meta property="og:title" content="移动端布局">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/移动端布局/index.html">
 <meta property="og:site_name" content="LYY&#39;BLOGS">
-<meta property="og:description" content="一、js是单线程的（阮一峰）  js是单线程的，执行完同步代码再执行异步 二、js事件触发的三个阶段1.捕获 2.目标 3.冒泡  在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段， 而不是在捕获阶段（重要）。 三、this指向（阮一峰）this在函数中，指的是函数调用者，call/apply改变函数调用者。">
+<meta property="og:description" content="总结一下移动端一些纠结过的问题；pc端dpr都是1，但是到了移动端后dpr就不一样了：首先从视口说起： #移动端的三个视口 ##布局视口    不设置viewport时候，viewport最常见的事980px；css布局在上面； ##视觉视口    此时口和设备的屏幕一样宽，但是他的css像素和缩放有关； ##理想视口    最理想的布局视口，浏览器根据理想视口来计算缩放程度。 #DPR    D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T14:07:12.605Z">
+<meta property="og:updated_time" content="2018-03-25T11:22:45.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js">
-<meta name="twitter:description" content="一、js是单线程的（阮一峰）  js是单线程的，执行完同步代码再执行异步 二、js事件触发的三个阶段1.捕获 2.目标 3.冒泡  在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段， 而不是在捕获阶段（重要）。 三、this指向（阮一峰）this在函数中，指的是函数调用者，call/apply改变函数调用者。">
+<meta name="twitter:title" content="移动端布局">
+<meta name="twitter:description" content="总结一下移动端一些纠结过的问题；pc端dpr都是1，但是到了移动端后dpr就不一样了：首先从视口说起： #移动端的三个视口 ##布局视口    不设置viewport时候，viewport最常见的事980px；css布局在上面； ##视觉视口    此时口和设备的屏幕一样宽，但是他的css像素和缩放有关； ##理想视口    最理想的布局视口，浏览器根据理想视口来计算缩放程度。 #DPR    D">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/03/js/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/21/移动端布局/"/>
 
 
 
 
 
-  <title>js | LYY'BLOGS</title>
+  <title>移动端布局 | LYY'BLOGS</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/js/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/移动端布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="youyu liu">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js</h1>
+          <h1 class="post-title" itemprop="name headline">移动端布局</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T17:12:30+08:00">
-                2018-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T18:32:54+08:00">
+                2018-03-21
               </time>
             
 
@@ -358,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
                   </a>
                 </span>
 
@@ -395,13 +395,14 @@
       
 
       
-        <h1 id="一、js是单线程的（阮一峰）"><a href="#一、js是单线程的（阮一峰）" class="headerlink" title="一、js是单线程的（阮一峰）"></a>一、js是单线程的（阮一峰）</h1><p>  js是单线程的，执行完同步代码再执行异步</p>
-<h1 id="二、js事件触发的三个阶段"><a href="#二、js事件触发的三个阶段" class="headerlink" title="二、js事件触发的三个阶段"></a>二、js事件触发的三个阶段</h1><pre><code>1.捕获 2.目标 3.冒泡
+        <h1 id="总结一下移动端一些纠结过的问题；"><a href="#总结一下移动端一些纠结过的问题；" class="headerlink" title="总结一下移动端一些纠结过的问题；"></a>总结一下移动端一些纠结过的问题；</h1><p>pc端dpr都是1，但是到了移动端后dpr就不一样了：<br>首先从视口说起：</p>
+<p>#移动端的三个视口</p>
+<p>##布局视口<br>    不设置viewport时候，viewport最常见的事980px；css布局在上面；</p>
+<p>##视觉视口<br>    此时口和设备的屏幕一样宽，但是他的css像素和缩放有关；</p>
+<p>##理想视口<br>    最理想的布局视口，浏览器根据理想视口来计算缩放程度。</p>
+<p>#DPR<br>    DPR=设备像素/css像素||逻辑像素||理想视口.<br>    浏览器厂商决定了理想视口，so dpr也是他们决定的.</p>
+<p>#桌面端和手机端的区别：<br>    1手机端缩放只影响‘视觉视口’，但是pc端缩放会影响‘视觉视口&amp;&amp;布局视口’，因为pc布局视口和视觉视口是相同的；<br>    2手机端缩放会产生滚动条，pc端不会产生滚动条；<br>    3window.devicePixelRadio 在移动端不变，在pc端就与缩放有关<br>     比如：放大两倍，设备像素/css像素||逻辑像素<br>           那么一个设备像素对应0.5个逻辑像素。</p>
 
-在哪听得一句话？js中绑定事件默认的执行时间都是在冒泡阶段，
-而不是在捕获阶段（重要）。
-</code></pre><h1 id="三、this指向（阮一峰）"><a href="#三、this指向（阮一峰）" class="headerlink" title="三、this指向（阮一峰）"></a>三、this指向（阮一峰）</h1><pre><code>this在函数中，指的是函数调用者，call/apply改变函数调用者。
-</code></pre>
       
     </div>
     
@@ -454,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/03/git/" rel="next" title="git个人总结">
-                <i class="fa fa-chevron-left"></i> git个人总结
+              <a href="/2018/03/05/b&&m/" rel="next" title="backbone">
+                <i class="fa fa-chevron-left"></i> backbone
               </a>
             
           </div>
@@ -464,8 +465,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/05/b&&m/" rel="prev" title="backbone">
-                backbone <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/23/js/" rel="prev" title="js">
+                js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -593,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、js是单线程的（阮一峰）"><span class="nav-number">1.</span> <span class="nav-text">一、js是单线程的（阮一峰）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、js事件触发的三个阶段"><span class="nav-number">2.</span> <span class="nav-text">二、js事件触发的三个阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、this指向（阮一峰）"><span class="nav-number">3.</span> <span class="nav-text">三、this指向（阮一峰）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#总结一下移动端一些纠结过的问题；"><span class="nav-number">1.</span> <span class="nav-text">总结一下移动端一些纠结过的问题；</span></a></li></ol></div>
             
 
           </div>
